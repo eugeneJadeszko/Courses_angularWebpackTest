@@ -1,0 +1,6 @@
+h1, label{color:DodgerBlue;}
+
+:host {
+    font-family: Verdana;
+    color: #555;
+}
