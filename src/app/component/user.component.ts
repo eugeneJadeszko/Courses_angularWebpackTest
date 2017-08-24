@@ -1,21 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {Response} from '@angular/http';
-import {HttpUserService} from "../service/http-user.service"
-import {User} from "../model/user"
+import {Component, Inject} from '@angular/core';
+import User from "../model/user";
+import IUserService from "../service/iuser.service";
 
 @Component({
     selector: 'user',
-    templateUrl: '../templates/user.component.html'
+    templateUrl: '../templates/user.template.html'
 })
 
-export class UserComponent implements OnInit {
+export class UserComponent {
+    users: User[];
 
-    users: User[] = [];
-
-    constructor(private httpService: HttpUserService) {
+    constructor(@Inject("userService") private userService: IUserService) {
     }
 
-    ngOnInit(): void {
-        this.httpService.findAll().subscribe((data: Response) => this.users = data.json());
+    refresh(): void {
+        this.userService.findAll()
+            .then(result => this.users = result)
+            .catch((e: Error) => alert(e.message));
     }
 }

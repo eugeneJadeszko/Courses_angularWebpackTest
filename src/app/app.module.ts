@@ -9,14 +9,15 @@ import {BookComponent} from "./component/book.component"
 import {BoardComponent} from "./component/board.component"
 import {UserComponent} from "./component/user.component"
 
-import {HttpBookService} from "./service/http-book.service";
-import {HttpBoardService} from "./service/http-board.service"
-import {HttpUserService} from "./service/http-user.service";
+import BookService from "./service/book.service";
+import BoardService from "./service/board.service"
+import UserService from "./service/user.service";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
     declarations: [AppComponent, ChildComponent, BookComponent, BoardComponent, UserComponent],
-    providers: [HttpBookService, HttpBoardService, HttpUserService],
+    providers: [{provide: "bookService", useClass: BookService},
+        {provide: "boardService", useClass: BoardService}, {provide: "userService", useClass: UserService}],
     bootstrap: [AppComponent]
 })
 export class AppModule {
