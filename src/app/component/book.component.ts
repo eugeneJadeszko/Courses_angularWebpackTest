@@ -1,21 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {Response} from '@angular/http';
-import {HttpBookService} from "../service/http-book.service"
-import {Book} from "../model/book"
+import {Component, Inject} from '@angular/core';
+import Book from "../model/book"
+import IBookService from "../service/ibook.service";
 
 @Component({
     selector: 'book',
-    templateUrl: '../templates/book.component.html'
+    templateUrl: '../templates/book.template.html'
 })
 
-export class BookComponent implements OnInit {
+export class BookComponent {
+    books: Book[];
 
-    books: Book[] = [];
-
-    constructor(private httpService: HttpBookService) {
+    constructor(@Inject("bookService") private bookService: IBookService) {
     }
 
-    ngOnInit(): void {
-        this.httpService.findAll().subscribe((data: Response) => this.books = data.json());
+    refresh() {
+        this.books = [];
+        this.bookService.findAll()
+            .then(result => this.books = result)
+            .catch((e: Error) => alert(e.message));
     }
 }

@@ -2,21 +2,21 @@
     <div class="form-inline">
         <div class="form-group">
             <div class="col-md-8">
-                <button class="btn btn-default" (click)="ngOnInit()">findUsers</button>
+                <button class="btn btn-default" (click)="refresh()">findBooks</button>
             </div>
         </div>
     </div>
     <table class="table table-striped" cellspacing="10">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>User name</th>
+            <th>Название</th>
+            <th>Автор</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user?.id}}</td>
-            <td>{{user?.name}}</td>
+        <tr *ngFor="let book of books">
+            <td>{{book?.tittle}}</td>
+            <td>{{book?.author}}</td>
         </tr>
         </tbody>
     </table>

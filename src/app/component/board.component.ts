@@ -1,25 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {Response} from '@angular/http';
-import {HttpBoardService} from "../service/http-board.service"
-import {Board} from "../model/board"
+import {Component, Inject} from '@angular/core';
+import Board from "../model/board"
+import IBoardService from "../service/iboard.service";
 
 @Component({
     selector: 'board',
-    templateUrl: '../templates/board.component.html'
+    templateUrl: '../templates/board.template.html'
 })
 
-export class BoardComponent implements OnInit {
+export class BoardComponent {
+    boards: Board[];
 
-    boards: Board[] = [];
+    constructor(@Inject("boardService") private boardService: IBoardService) {
+    }
 
-    constructor(private httpService: HttpBoardService) {
+    refresh(): void {
+        this.boardService.findAll()
+            .then(result => this.boards = result)
+            .catch((e: Error) => alert(e.message));
     }
 
     addBoard(num: number) {
-        this.httpService.addBoard(num).subscribe((data: Response) => console.log(data.json()));
-    }
-
-    ngOnInit(): void {
-        this.httpService.getAllBoard().subscribe((data: Response) => this.boards = data.json());
+        this.boardService.addBoard(num)
+            .catch((e: Error) => alert(e.message));
     }
 }
