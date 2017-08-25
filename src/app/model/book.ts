@@ -5,6 +5,9 @@ import User from "./user";
  * Book model
  */
 export default class Book {
-    constructor(public id: number, tittle: string, public author: string, public board: Board, public users: User[]) {
-    }
+    id: number;
+    tittle: string;
+    author: string;
+    board: Board;
+    users: User[];
 }

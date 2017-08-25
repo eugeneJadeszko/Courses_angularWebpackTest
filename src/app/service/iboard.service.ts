@@ -17,7 +17,14 @@ interface IBoardService {
      * @returns {Promise<Board>}
      * @see Board
      */
-    addBoard(num: number): Promise<Board>;
+    createBoard(num: number): Promise<Board>;
+
+    /**
+     * This method deletes board from database
+     * @param {number} id - board id
+     * @returns {Promise<Board>}
+     */
+    deleteById(id: number): Promise<Board>;
 }
 
 export default IBoardService;

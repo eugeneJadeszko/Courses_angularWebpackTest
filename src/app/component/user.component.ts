@@ -18,4 +18,14 @@ export class UserComponent {
             .then(result => this.users = result)
             .catch((e: Error) => alert(e.message));
     }
+
+    createUser(name: string) {
+        this.userService.createUser(name)
+            .catch((e: Error) => alert(e.message));
+    }
+
+    deleteById(id: number) {
+        this.userService.deleteById(id)
+            .catch((e: Error) => alert(e.message));
+    }
 }
