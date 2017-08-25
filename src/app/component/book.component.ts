@@ -19,4 +19,14 @@ export class BookComponent {
             .then(result => this.books = result)
             .catch((e: Error) => alert(e.message));
     }
+
+    createBook(title: string, author: string) {
+        this.bookService.createBook(title, author)
+            .catch((e: Error) => alert(e.message));
+    }
+
+    deleteById(id: number) {
+        this.bookService.deleteById(id)
+            .catch((e: Error) => alert(e.message));
+    }
 }

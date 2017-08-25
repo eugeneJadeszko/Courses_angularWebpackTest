@@ -2,8 +2,16 @@
     <div class="form-inline">
         <div class="form-group">
             <div class="col-md-8">
-                <input class="form-control" [(ngModel)]="number" placeholder="полка"/>
-                <button class="btn btn-default" (click)="createBoard(number)">Новая полка</button>
+                <input class="form-control" [(ngModel)]="number" placeholder="номер полки"/>
+                <button class="btn btn-default" (click)="createBoard(number)">Создать полку</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <div class="col-md-8">
+                <input class="form-control" [(ngModel)]="id" placeholder="id полки"/>
+                <button class="btn btn-default" (click)="deleteById(id)">Удалить полку</button>
             </div>
         </div>
     </div>

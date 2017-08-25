@@ -19,13 +19,13 @@ export class BoardComponent {
             .catch((e: Error) => alert(e.message));
     }
 
-    addBoard(num: number) {
-        this.boardService.addBoard(num)
+    createBoard(numberOfBoard: number) {
+        this.boardService.createBoard(numberOfBoard)
             .catch((e: Error) => alert(e.message));
     }
 
-    createBoard(numberOfBoard: number) {
-        this.boardService.createBoard(numberOfBoard)
+    deleteById(id: number) {
+        this.boardService.deleteById(id)
             .catch((e: Error) => alert(e.message));
     }
 }
