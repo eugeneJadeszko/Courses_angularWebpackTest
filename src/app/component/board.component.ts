@@ -23,4 +23,9 @@ export class BoardComponent {
         this.boardService.addBoard(num)
             .catch((e: Error) => alert(e.message));
     }
+
+    createBoard(numberOfBoard: number) {
+        this.boardService.createBoard(numberOfBoard)
+            .catch((e: Error) => alert(e.message));
+    }
 }

@@ -4,7 +4,7 @@ import IBookService from "./ibook.service";
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const BOOK_ALL = '/jpa/c/book/all';
+const BOOK_ALL = '/jpa/book/all';
 
 @Injectable()
 export default class BookService implements IBookService {

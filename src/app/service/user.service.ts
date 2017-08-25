@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import IUserService from "./iuser.service";
 import User from "../model/user";
 
-const USER_ALL = '/jpa/c/user/all';
+const USER_ALL = '/jpa/user/all';
 
 @Injectable()
 export default class UserService implements IUserService {

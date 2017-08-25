@@ -49,7 +49,7 @@ module.exports = {
 
     devServer: {
         proxy: {
-            '/jpa/c/*':
+            '/jpa/*':
                 {
                     target: 'http://localhost:8080/',
                     secure: false

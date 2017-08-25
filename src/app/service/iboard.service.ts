@@ -18,6 +18,14 @@ interface IBoardService {
      * @see Board
      */
     addBoard(num: number): Promise<Board>;
+
+    /**
+     * Adds new board into database
+     * @param {number} num - number of board
+     * @returns {Promise<Board>}
+     * @see Board
+     */
+    createBoard(num: number): Promise<Board>;
 }
 
 export default IBoardService;
