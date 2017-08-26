@@ -3,7 +3,8 @@
         <img src="d:/work/frontend/Courses_angularWebpackTest/src/app/img/angular.png" width="30" height="30">ngular! И
         Webpack туда же!</h2>
 </div>
-<child-comp></child-comp>
-<book></book>
-<user></user>
-<board></board>
+<a routerLink="/" routerLinkActive="active">Главная</a>
+<a routerLink="/board" routerLinkActive="active">Полки</a>
+<a routerLink="/book" routerLinkActive="active">Книги</a>
+<a routerLink="/user" routerLinkActive="active">Читатели</a>
+<router-outlet></router-outlet>
