@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {//выходные файлы записывать в папку dist файлы формировать как имя исходного.хэш
         path: path.resolve('dist'),
-        publicPath: '/webpack/',
+        publicPath: '/',
         filename: '[name].[hash].js'
     },
     resolve: {//если нет расширений то файлы будут обрабатываться как TypeScript или JavaScript файл
